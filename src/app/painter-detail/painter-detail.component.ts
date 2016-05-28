@@ -1,16 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Painter } from '../painter';
+import { Component } from '@angular/core';
 
 @Component({
   moduleId: module.id,
   selector: 'app-painter-detail',
   templateUrl: 'painter-detail.component.html',
-  styleUrls: ['painter-detail.component.css']
+  styleUrls: ['painter-detail.component.css'],
+  inputs: ['painter']
 })
-export class PainterDetailComponent implements OnInit {
-
-  constructor() {}
-
-  ngOnInit() {
-  }
-
+export class PainterDetailComponent {
+  public painter: Painter;
 }
