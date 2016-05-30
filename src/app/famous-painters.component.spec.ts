@@ -15,8 +15,8 @@ describe('App: FamousPainters', () => {
     expect(app).toBeTruthy();
   }));
 
-  it('should have as title \'famous-painters works!\'',
+  it('should have as title \'Famous painters\'',
       inject([FamousPaintersAppComponent], (app: FamousPaintersAppComponent) => {
-    expect(app.title).toEqual('famous-painters works!');
+    expect(app.title).toEqual('Famous painters');
   }));
 });

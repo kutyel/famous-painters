@@ -11,6 +11,11 @@ export class PainterService {
     return Promise.resolve(PAINTERS);
   }
 
+  getPainterById(id: number) {
+    return Promise.resolve(PAINTERS)
+      .then(painters => painters.find(painter => painter.id === id));
+  }
+
   getLaggedPainters() {
     return new Promise<Painter[]>(resolve =>
       setTimeout(() => resolve(PAINTERS), 2000)

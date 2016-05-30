@@ -1,0 +1,11 @@
+<ul class="painters">
+  <li *ngFor="let p of painters" [class.selected]="p === selectedPainter" (click)="onSelect(p)">
+    <span class="badge">{{p.id}}</span> {{p.name}}
+  </li>
+</ul>
+<div *ngIf="selectedPainter">
+  <h2>
+    {{selectedPainter.name | uppercase}} is my favourite painter!
+  </h2>
+  <button (click)="gotoDetail()">View Details</button>
+</div>

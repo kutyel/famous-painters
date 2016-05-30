@@ -1,31 +1,29 @@
-import { Painter } from './painter';
+import { PaintersComponent } from './+painters';
+import { DashboardComponent } from './+dashboard';
 import { Component, OnInit } from '@angular/core';
 import { PainterService } from './painter.service';
 import { PainterDetailComponent } from './painter-detail/painter-detail.component';
+import { Router, Routes, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router';
 
 @Component({
   moduleId: module.id,
   selector: 'famous-painters-app',
   templateUrl: 'famous-painters.component.html',
   styleUrls: ['famous-painters.component.css'],
-  directives: [PainterDetailComponent],
-  providers: [PainterService]
+  directives: [ROUTER_DIRECTIVES],
+  providers: [ROUTER_PROVIDERS, PainterService]
 })
+@Routes([
+  { path: '/dashboard', component: DashboardComponent },
+  { path: '/painters', component: PaintersComponent },
+  { path: '/painter/:id', component: PainterDetailComponent }
+])
 export class FamousPaintersAppComponent implements OnInit {
+  public title = 'Famous painters';
 
-  public title = 'famous-painters works!';
-  public painters: Painter[];
-  public selectedPainter: Painter;
-
-  constructor(private _painterService: PainterService) { }
-
-  getPainters() {
-    this._painterService.getPainters().then(p => this.painters = p);
-  }
+  constructor(private router: Router) { }
 
   ngOnInit() {
-    this.getPainters();
+    this.router.navigate(['/dashboard']);
   }
-
-  onSelect(p: Painter) { this.selectedPainter = p; }
 }
