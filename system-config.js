@@ -24,6 +24,8 @@ var barrels = [
     'app',
     'app/shared',
     'app/painter-detail',
+    'app/+dashboard',
+    'app/+painters',
 ];
 var cliSystemConfigPackages = {};
 barrels.forEach(function (barrelName) {

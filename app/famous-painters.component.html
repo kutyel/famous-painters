@@ -1,7 +1,6 @@
-<h1><img class="logoImg" src="img/brush.png" /> Famous painters</h1>
-<ul class="painters">
-  <li *ngFor="let p of painters" [class.selected]="p === selectedPainter" (click)="onSelect(p)">
-    <span class="badge">{{p.id}}</span> {{p.name}}
-  </li>
-</ul>
-<app-painter-detail [painter]="selectedPainter"></app-painter-detail>
+<h1><img class="logoImg" src="img/brush.png" /> {{title}}</h1>
+<nav>
+    <a [routerLink]="['/dashboard']">Dashboard</a>
+    <a [routerLink]="['/painters']">Painters</a>
+  </nav>
+<router-outlet></router-outlet>
